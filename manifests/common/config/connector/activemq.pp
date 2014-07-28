@@ -5,7 +5,7 @@ class mcollective::common::config::connector::activemq {
   }
 
   mcollective::common::setting { 'direct_addressing':
-    value => 1,
+    value => '1',
   }
 
   mcollective::common::setting { 'plugin.activemq.base64':
@@ -21,6 +21,6 @@ class mcollective::common::config::connector::activemq {
     value => $pool_size,
   }
 
-  $indexes = range('1', $pool_size)
-  mcollective::common::config::connector::activemq::hosts_iteration { $indexes: }
+  $indexes = range('1', "$pool_size")
+  mcollective::common::config::connector::activemq::hosts_iteration { "$indexes": }
 }
